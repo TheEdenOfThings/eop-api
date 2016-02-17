@@ -1,4 +1,6 @@
 RewriteEngine on
 RewriteRule ^/?([a-zA-Z_]+)/([a-zA-Z_]+)$ index.php?task=$1&operation=$2 [L]
 
+RewriteRule ^/?([a-zA-Z_]+)/([a-zA-Z_]+)/([a-zA-Z0-9_]+)/([a-zA-Z_]+)$ sensor.php?task=$1&operation=$2&id=$3&type=$4 [L]
+
 Header set Access-Control-Allow-Origin "*"
