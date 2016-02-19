@@ -1,6 +1,8 @@
 <?php
 include 'init.php';
-
+/**
+ * Sensor locations
+ */
 class Location
 {
 
@@ -10,12 +12,48 @@ class Location
      * @var int
      */
     public $id;
+
+    /**
+     * Zone of the location (biome)
+     *
+     * @var string
+     */
     public $zone;
+
+    /**
+     * Latitude of location
+     *
+     * @var float
+     */
     public $lat;
+
+    /**
+     * Longitude of location
+     *
+     * @var float
+     */
     public $long;
+
+    /**
+     * Name of zone
+     *
+     * @var string
+     */
     public $name;
+
+    /**
+     * Collection of sensors
+     *
+     * @var Sensor[]
+     */
     public $sensors;
 
+    /**
+     * Add a sensor to the collection of senspors
+     *
+     * @param Sensor $sensor Sensor to add
+     * @return void
+     */
     function addSensor(Sensor $sensor)
     {
         $this->sensors[]=$sensor;
@@ -34,13 +72,44 @@ class Location
 
 }
 
+/**
+ * Sensor device
+ */
 class Sensor
 {
-
+    /**
+     * Sensor identifier
+     *
+     * @var int
+     */
     public $id;
+
+    /**
+     * Unit of measurement for sensor
+     *
+     * @var string
+     */
     public $unit;
+
+    /**
+     * Type of sensor
+     *
+     * @var string
+     */
     public $type;
+
+    /**
+     * Current value of sensor
+     *
+     * @var string
+     */
     public $current;
+
+    /**
+     * Seconds ago of last value logged
+     *
+     * @var int
+     */
     public $last;
 
     function __construct($sensorId, $unit, $sensorType, $currentValue, $lastSeen)
@@ -52,6 +121,7 @@ class Sensor
         $this->last =$lastSeen;
     }
 }
+
 //check if the array exists
 if (isset ($_GET['task']))
 {
