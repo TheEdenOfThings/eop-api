@@ -123,23 +123,6 @@ foreach($results as $result)
     $locationArr[$result->location_id]->addSensor($s);
 }
 
-//var_dump($locationArr[1]);
 
-
-/*make fake locations
-$l1 = new Location (1, 'Waterfall', 'Tropical', 50, 120);
-$l2 = new Location (2, 'Balcony', 'Moon', 100, 1200);
-$l3 = new Location (3, 'Platform ', 'Mediterranean',70, 130);
-*/
-// uni fake sensors
-
-
-/*$s1 = new Sensor (1, 'C', 'Temperature', 45, 600);
-$l1->addSensor($s1);
-$s2 = new Sensor (2, '%', 'Humidity', 70, 600);
-$l2->addSensor($s2);
-$s3 = new Sensor (3, 'L', 'Light', 200, 600);
-$l3->addSensor($s3);
-*/
 $result = json_encode($locationArr);
 echo $result;
