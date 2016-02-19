@@ -4,9 +4,18 @@ include 'init.php';
 $stationId  = (int)$_GET['id'];
 $sensorType = trim($_GET['type']);
 
-$value    = trim(@$_POST['value']);
+//$value    = trim(@$_POST['value']);
 $sequence = (int)@$_POST['sequence'];
 $live     = ((int)@$_POST['live']) == 0 ? false : true;
+
+// Sensor team haven't used 'value' for values...
+$value = '?';
+$sensorValuesFields = array('Temp_0', 'systemtemp', 'Humidity', 'light');
+foreach ($sensorValuesFields as $f)
+{
+	if (isset($_POST[$f]))
+		$value = trim($_POST[$f]);
+}
 
 $sql = <<<EOF
 INSERT INTO sensor_data
