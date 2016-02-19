@@ -1,20 +1,30 @@
 <?php
 include 'init.php';
 
+$h = fopen('/tmp/sensors.log', 'a');
+fwrite($h, file_get_contents('php://input')."\n");
+//fclose($h);
+
 $stationId  = (int)$_GET['id'];
 $sensorType = trim($_GET['type']);
 
+// Params from sensors
+$params = array();
+parse_str(file_get_contents('php://input'), $params);
+fwrite($h, var_export($params, true));
+fclose($h);
+
 //$value    = trim(@$_POST['value']);
-$sequence = (int)@$_POST['sequence'];
-$live     = ((int)@$_POST['live']) == 0 ? false : true;
+$sequence = (int)@$params['sequence'];
+$live     = ((int)@$params['live']) == 0 ? false : true;
 
 // Sensor team haven't used 'value' for values...
 $value = '?';
 $sensorValuesFields = array('Temp_0', 'systemtemp', 'Humidity', 'light');
 foreach ($sensorValuesFields as $f)
 {
-	if (isset($_POST[$f]))
-		$value = trim($_POST[$f]);
+	if (isset($params[$f]))
+		$value = trim($params[$f]);
 }
 
 $sql = <<<EOF
