@@ -4,7 +4,7 @@ include 'init.php';
 $stationId  = (int)$_GET['id'];
 $sensorType = trim($_GET['type']);
 
-$value    = (int)@$_POST['value'];
+$value    = trim(@$_POST['value']);
 $sequence = (int)@$_POST['sequence'];
 $live     = ((int)@$_POST['live']) == 0 ? false : true;
 
