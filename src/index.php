@@ -3,6 +3,11 @@
 class Location
 {
 
+    /**
+     * Location identifier
+     *
+     * @var int
+     */
     public $id;
     public $zone;
     public $lat;
