@@ -29,29 +29,70 @@ Indie programmer based in Newquay.
 
 * The plan for Eden
 
-*
-* What did we need to achieve?
+** What did we need to achieve?
 Our aim was to create a system in which the two other teams could use.
 
 The sensor team needed to be able to post sensor data to the database,
 and the AV team needed to be able to retrieve this data, and use it in
 their visual presentations.
 
-This meant that we needed to create a functioning database, linking multiple
-tables in order to store information about the sensors and their locations
-as well as
+This meant that we needed to create a functioning central database, linking
+multiple tables in order to store information about the sensors and their
+locations as well as the values that they report.
+
+This data then needed to be translated to JSON, a format in which the AV team
+required to create the visuals.
 
 * Our Journey
 
+All members of the team have had to learn new skills in PHP, MySQL and using
+unfamiliar operating systems and programs such as EMACS.
 
-* Our product
+** Day 1
 
-** Active up time monitoring
+On day one, we encountered issues installing Apache and PHP, which we eventually
+overcame with research and support from mentors.
 
-** DRY compliant database schema
+** Day 2
 
-** API
+On day two, we set up the environment for our programming, making sure that all
+of the software that we required was installed.
 
-** Security
+We also discussed how we were going to proceed with development.
+We liaised with the AV team in order to find out exactly what they required from
+our output API.
+
+We enabled the rewrite engine to allow the API address to be more user friendly.
+
+The project was pushed to Github so that we could share between the two machines
+and backup the project.
+
+** Day 3
+We set up a CamBam Board to track our progress with each element we created.
+
+We customised the development environment to make it more familiar to us.
+
+The AV team gave us a list of alterations they needed doing to their API, these
+were implemented correctly and tested to be fully working.
+
+
+** Day 4
+
+Today, we established weather or not the sensors had a connection to the API, and
+we liaised with the sensor team to ensure that the sensors were able to send the
+correct data through to our API before they were installed into the biomes.
+
+We also set up the database and populated it with test data, meaning that we
+could test the connection with the AVI team.
+
+We also used DiceWare to create a secure password to the database.
+
+
+
+** Day 5 - Our final day
+
+Today we mostly spent our time finishing the database and sensor API, so that the
+sensor team could send the data through and the AV team use real-life data to
+populate their visuals.
 
 * Any Questions?
