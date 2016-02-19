@@ -1,12 +1,12 @@
 <?php
 include 'init.php';
 
-$stationId  = int($_GET['id']);
+$stationId  = (int)$_GET['id'];
 $sensorType = trim($_GET['type']);
 
-$value    = int(@$_POST['value']);
-$sequence = int(@$_POST['sequence']);
-$live     = int(@$_POST['live']) == 0 ? false : true;
+$value    = (int)@$_POST['value'];
+$sequence = (int)@$_POST['sequence'];
+$live     = ((int)@$_POST['live']) == 0 ? false : true;
 
 $sql = <<<EOF
 INSERT INTO sensor_data
@@ -29,8 +29,10 @@ VALUES
     ON se.sensor_type_id = st.id
 
     WHERE s.id=:stationId AND st.type=:sensorType
+
+    LIMIT 1
 ), 
-:value :sequence, NOW())
+:value, :sequence, NOW())
 EOF;
 
 try
