@@ -193,6 +193,8 @@ foreach($results as $result)
     $locationArr[$result->location_id]->addSensor($s);
 }
 
-
-$result = json_encode($locationArr);
+$resArr = array();
+foreach ($locationArr as $loc)
+	$resArr[] = $loc;
+$result = json_encode($resArr);
 echo $result;
