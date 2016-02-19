@@ -162,7 +162,7 @@ ON s.sensor_type_id= st.id
 
 GROUP BY s.id
 
-ORDER BY sd.sensor_id, sd.sequence DESC
+ORDER BY sd.sequence DESC
 
 EOF;
 $sth = $dbh->prepare($sql);
