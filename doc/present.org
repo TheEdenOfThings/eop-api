@@ -37,6 +37,10 @@ The sensor team needed to be able to post sensor data to the database,
 and the AV team needed to be able to retrieve this data, and use it in
 their visual presentations.
 
+This meant that we needed to create a functioning database, linking multiple
+tables in order to store information about the sensors and their locations
+as well as
+
 * Our Journey
 
 
